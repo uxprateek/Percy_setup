@@ -1,7 +1,7 @@
 const { Builder, By, Key } = require('selenium-webdriver');
-require('chromedriver');
+//require('chromedriver');
+const firefox = require('selenium-webdriver/firefox');
 const httpServer = require('http-server');
-const chrome = require('chromedriver');
 
 username = process.env.BROWSERSTACK_USERNAME
 accessKey = process.env.BROWSERSTACK_ACCESS_KEY
@@ -45,7 +45,12 @@ var driver = new webdriver.Builder().
 
 (async function() {
   // Create an instance of the WebDriver
-  const driver = await new Builder().forBrowser('chrome').build();
+  //const driver = await new Builder().forBrowser('chrome').build();
+
+  driver = await new Builder()
+      .forBrowser('firefox').setFirefoxOptions(
+        new firefox.Options().headless()
+      ).build();
 
   try {
     // Open the HTML form
