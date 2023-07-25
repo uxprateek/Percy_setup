@@ -1,4 +1,6 @@
 const { Builder, By, Key } = require('selenium-webdriver');
+//require('chromedriver');
+const firefox = require('selenium-webdriver/firefox');
 const httpServer = require('http-server');
 const percySnapshot = require('@percy/selenium-webdriver');
 
@@ -44,7 +46,12 @@ var driver = new webdriver.Builder().
 
 (async function() {
   // Create an instance of the WebDriver
-  const driver = await new Builder().forBrowser('chrome').build();
+  //const driver = await new Builder().forBrowser('chrome').build();
+
+  driver = await new Builder()
+      .forBrowser('firefox').setFirefoxOptions(
+        new firefox.Options().headless()
+      ).build();
 
   try {
     // Open the HTML form
