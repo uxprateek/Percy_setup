@@ -1,6 +1,7 @@
 const { Builder, By, Key } = require('selenium-webdriver');
 require('chromedriver');
 const httpServer = require('http-server');
+const percySnapshot = require('@percy/selenium-webdriver');
 
 username = process.env.BROWSERSTACK_USERNAME
 accessKey = process.env.BROWSERSTACK_ACCESS_KEY
@@ -53,6 +54,7 @@ var driver = new webdriver.Builder().
     // Find the form fields and interact with them
     const nameInput = await driver.findElement(By.id('name'));
     await nameInput.sendKeys('John Doe');
+    await percySnapshot(driver, 'name input');
 
     const emailInput = await driver.findElement(By.id('email'));
     await emailInput.sendKeys('johndoe@example.com');
@@ -62,6 +64,8 @@ var driver = new webdriver.Builder().
 
     const hobbiesInput = await driver.findElement(By.id('hobbies'));
     await hobbiesInput.sendKeys('Reading, Coding, Sports');
+    await percySnapshot(driver, 'hobbies input');
+
 
     // Submit the form
     const submitButton = await driver.findElement(By.xpath("//input[@type='submit']"));
