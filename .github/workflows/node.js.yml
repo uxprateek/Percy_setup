@@ -27,6 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - run: npm install --save-dev @percy/cli
     - run: npm run test
     env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
