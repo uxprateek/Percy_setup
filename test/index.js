@@ -1,5 +1,4 @@
 const { Builder, By, Key } = require('selenium-webdriver');
-require('chromedriver');
 const httpServer = require('http-server');
 const percySnapshot = require('@percy/selenium-webdriver');
 
