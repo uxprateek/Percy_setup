@@ -28,6 +28,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm install --save-dev @percy/cli
-    - run: npm run test
+    - run: npm test
     env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
