@@ -1,5 +1,46 @@
 const { Builder, By, Key } = require('selenium-webdriver');
 require('chromedriver');
+const httpServer = require('http-server');
+
+username = process.env.BROWSERSTACK_USERNAME
+accessKey = process.env.BROWSERSTACK_ACCESS_KEY
+buildName = process.env.JENKINS_LABEL
+
+
+const server = httpServer.createServer();
+
+const PORT = process.env.PORT_NUMBER || 8000;
+const TEST_URL = `http://localhost:${PORT}`;
+
+server.listen(PORT);
+console.log(`Server is listening on ${TEST_URL}`);
+
+async function cleanup({ driver, server, isError = 0 }) {
+  driver && (await driver.quit());
+  server && server.close();
+
+  process.exit(isError);
+}
+
+
+/* var capabilities = {
+  'bstack:options' : {
+    "os" : "Windows",
+    "osVersion" : "10",
+    "sessionName" : "BStack Build Name: " + buildName,
+    "userName" : username,
+    "accessKey" : accessKey,
+    "seleniumVersion" : "4.0.0",
+  },
+    "browserName" : "Chrome",
+    "browserVersion" : "100.0",
+}
+
+var driver = new webdriver.Builder().
+  usingServer("https://hub-cloud.browserstack.com/wd/hub").
+  withCapabilities(capabilities).
+  build();
+ */
 
 (async function() {
   // Create an instance of the WebDriver
@@ -40,6 +81,7 @@ require('chromedriver');
 
   } finally {
     // Close the browser
-    await driver.quit();
+    // await driver.quit();
+    await cleanup({ driver, server });
   }
 })();

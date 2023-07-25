@@ -1,0 +1,12 @@
+2023-07-17 15:28:08 - [31merror[39m: Config file does not exist at any parent directory of 
+2023-07-17 15:28:08 - [31merror[39m: Error: Config file does not exist at any parent directory of: /Users/preetham/Documents/server-experiments
+    at new BrowserStackSetup (/Users/preetham/Documents/server-experiments/node_modules/browserstack-node-sdk/src/helpers/BrowserStackSetup.js:1:5586)
+    at run (/Users/preetham/Documents/server-experiments/node_modules/browserstack-node-sdk/src/bin/jest/command.js:2:8978)
+    at Object.wnTzY (/Users/preetham/Documents/server-experiments/node_modules/browserstack-node-sdk/src/bin/runner.js:2:1559)
+    at captureError (/Users/preetham/Documents/server-experiments/node_modules/browserstack-node-sdk/src/bin/runner.js:2:2251)
+    at Object.lXjpL (/Users/preetham/Documents/server-experiments/node_modules/browserstack-node-sdk/src/bin/runner.js:2:6512)
+    at /Users/preetham/Documents/server-experiments/node_modules/browserstack-node-sdk/src/bin/runner.js:2:6731
+    at _.applyBuilderUpdateUsageAndParse (/Users/preetham/Documents/server-experiments/node_modules/yargs/build/index.cjs:1:7435)
+    at _.runCommand (/Users/preetham/Documents/server-experiments/node_modules/yargs/build/index.cjs:1:7078)
+    at [runYargsParserAndExecuteCommands] (/Users/preetham/Documents/server-experiments/node_modules/yargs/build/index.cjs:1:58539)
+    at te.parse (/Users/preetham/Documents/server-experiments/node_modules/yargs/build/index.cjs:1:40478)
