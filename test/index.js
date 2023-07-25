@@ -1,6 +1,7 @@
 const { Builder, By, Key } = require('selenium-webdriver');
 require('chromedriver');
 const httpServer = require('http-server');
+const chrome = require('chromedriver');
 
 username = process.env.BROWSERSTACK_USERNAME
 accessKey = process.env.BROWSERSTACK_ACCESS_KEY
