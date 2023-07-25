@@ -5,15 +5,15 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "node test"
+    "test": "percy exec -- node test"
   },
   "devDependencies": {
+    "@percy/cli": "^1.26.2",
+    "@percy/selenium-webdriver": "^1.0.5",
     "browserstack-node-sdk": "^1.23.2",
     "http-server": "^0.11.1"
   },
   "dependencies": {
-    "@percy/cli": "^1.0.5",
-    "@percy/selenium-webdriver": "^1.0.2",
     "chromedriver": "^114.0.2",
     "geckodriver": "^4.0.4",
     "selenium-webdriver": "^4.10.0"
